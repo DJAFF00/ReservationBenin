@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Mode clair — blanc, gris clair, orange vif, bleu marine */
+  --background: 0 0% 100%;
+  --surface: 0 0% 100%;
+  --surface-muted: 0 0% 90%;
+  --foreground: 221 51% 16%;
+  --foreground-muted: 221 15% 42%;
+  --border: 0 0% 87%;
+
+  --indigo: 221 51% 16%;
+  --indigo-foreground: 0 0% 100%;
+
+  --ochre: 37 98% 53%;
+  --ochre-foreground: 221 51% 12%;
+
+  --palm: 158 45% 32%;
+  --palm-foreground: 0 0% 100%;
+
+  --danger: 6 70% 45%;
+  --danger-foreground: 0 0% 100%;
+}
+
+.dark {
+  --background: 0 0% 0%;
+  --surface: 221 40% 11%;
+  --surface-muted: 221 35% 17%;
+  --foreground: 0 0% 100%;
+  --foreground-muted: 221 15% 66%;
+  --border: 221 30% 22%;
+
+  --indigo: 221 60% 55%;
+  --indigo-foreground: 0 0% 100%;
+
+  --ochre: 37 98% 53%;
+  --ochre-foreground: 221 51% 12%;
+
+  --palm: 158 45% 45%;
+  --palm-foreground: 221 51% 10%;
+
+  --danger: 6 75% 58%;
+  --danger-foreground: 0 0% 100%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+::selection {
+  background-color: hsl(var(--ochre) / 0.3);
+}
+
+/* --- Effets "vivants" --- */
+
+/* Verre dépoli pour le header et les panneaux flottants */
+.glass {
+  background-color: hsl(var(--background) / 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Formes animées en arrière-plan du hero */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2%, -4%) scale(1.05); }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-3%, 3%) scale(1.08); }
+}
+.animate-float-slow {
+  animation: float-slow 14s ease-in-out infinite;
+}
+.animate-float-slower {
+  animation: float-slower 18s ease-in-out infinite;
+}
+
+/* Apparition douce au chargement */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+.animate-fade-in-up-delay-1 {
+  animation: fade-in-up 0.6s ease-out 0.1s both;
+}
+.animate-fade-in-up-delay-2 {
+  animation: fade-in-up 0.6s ease-out 0.2s both;
+}
+
+/* Apparition des notifications toast */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-toast-in {
+  animation: toast-in 0.25s ease-out both;
+}
