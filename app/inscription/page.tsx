@@ -4,7 +4,14 @@ import { signUp } from "./actions";
 import { Input, Label } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-export default function InscriptionPage() {
+export default async function InscriptionPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ role?: string }>;
+}) {
+  const { role } = await searchParams;
+  const isProprietaire = role === "proprietaire";
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-6 py-16">
       <div className="w-full max-w-sm">
@@ -34,7 +41,7 @@ export default function InscriptionPage() {
                   type="radio"
                   name="role"
                   value="locataire"
-                  defaultChecked
+                  defaultChecked={!isProprietaire}
                   className="peer sr-only"
                 />
                 <div className="flex flex-col items-center gap-2 rounded border border-border px-3 py-4 text-center transition-colors peer-checked:border-indigo peer-checked:bg-indigo/5">
@@ -53,6 +60,7 @@ export default function InscriptionPage() {
                   type="radio"
                   name="role"
                   value="proprietaire"
+                  defaultChecked={isProprietaire}
                   className="peer sr-only"
                 />
                 <div className="flex flex-col items-center gap-2 rounded border border-border px-3 py-4 text-center transition-colors peer-checked:border-indigo peer-checked:bg-indigo/5">
