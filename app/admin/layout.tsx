@@ -23,7 +23,7 @@ export default async function AdminLayout({
               ← Retour au site
             </Link>
           </div>
-          <nav className="mt-3 flex gap-6 text-sm text-foreground-muted">
+          <nav className="mt-3 flex gap-6 overflow-x-auto whitespace-nowrap text-sm text-foreground-muted">
             <Link href="/admin" className="hover:text-foreground">
               Vue d&apos;ensemble
             </Link>

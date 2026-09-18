@@ -136,7 +136,7 @@ export default async function AnnoncePubliquePage({
 
           {/* Widget de réservation */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 rounded-lg border border-border p-5">
+            <div className="rounded-lg border border-border p-5 lg:sticky lg:top-24">
               <p className="font-display text-xl font-semibold text-foreground">
                 {property.price_per_night.toLocaleString("fr-FR")} FCFA{" "}
                 <span className="text-sm font-normal text-foreground-muted">

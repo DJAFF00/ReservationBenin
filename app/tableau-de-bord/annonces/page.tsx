@@ -25,7 +25,7 @@ export default async function MesAnnoncesPage() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <Link
             href="/tableau-de-bord"
@@ -64,10 +64,10 @@ export default async function MesAnnoncesPage() {
             <Link
               key={p.id}
               href={`/tableau-de-bord/annonces/${p.id}`}
-              className="flex items-center justify-between px-5 py-4 hover:bg-surface"
+              className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 px-5 py-4 hover:bg-surface"
             >
-              <div>
-                <p className="font-medium text-foreground">{p.title}</p>
+              <div className="min-w-0">
+                <p className="truncate font-medium text-foreground">{p.title}</p>
                 <p className="mt-0.5 text-sm text-foreground-muted">
                   {labelType(p.property_type)} · {p.city} ·{" "}
                   {p.price_per_night.toLocaleString("fr-FR")} FCFA/nuit

@@ -188,7 +188,7 @@ export function PropertyForm({ property }: { property: PropertyData }) {
         <h2 className="font-display text-base font-semibold text-foreground">
           Tarifs (FCFA)
         </h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div>
             <Label htmlFor="price_per_night">Par nuit *</Label>
             <Input
